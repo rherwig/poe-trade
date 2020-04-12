@@ -1,6 +1,6 @@
 import { EMessageLevel } from '../enums/EMessageLevel';
 import { EMessageLayer } from '../enums/EMessageLayer';
-import AbstractMessage from './AbstractMessage';
+import AbstractMessage from './messages/AbstractMessage';
 
 export default class Envelope {
     private id: number;
@@ -26,6 +26,14 @@ export default class Envelope {
         this.layer = layer;
         this.meta = meta;
         this.clientId = clientId;
+        this.message = message;
+    }
+
+    public getMessage() {
+        return this.message;
+    }
+
+    public setMessage(message: AbstractMessage) {
         this.message = message;
     }
 }

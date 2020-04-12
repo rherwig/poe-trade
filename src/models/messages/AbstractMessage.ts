@@ -1,11 +1,11 @@
-import Player from './Player';
-import { IMessageParserOptions } from '../interfaces/IMessageParserOptions';
+import Player from '../Player';
+import { IMessageParserOptions } from '../../interfaces/IMessageParserOptions';
 
 export default abstract class AbstractMessage {
     protected payload: string;
     protected player: Player | null;
 
-    constructor(payload: string, parserOptions: IMessageParserOptions = {}) {
+    protected constructor(payload: string, parserOptions: IMessageParserOptions = {}) {
         const { prefix, payloadRegex, playerRegex } = parserOptions;
 
         let _prefix = prefix || '';
@@ -35,4 +35,6 @@ export default abstract class AbstractMessage {
 
         return _payload || payload;
     }
+
+    protected abstract getName(): string;
 }

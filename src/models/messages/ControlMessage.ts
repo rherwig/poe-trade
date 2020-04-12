@@ -11,4 +11,8 @@ export default class ControlMessage extends AbstractMessage {
             playerRegex: null,
         });
     }
+
+    protected getName(): string {
+        return 'ControlMessage';
+    }
 }

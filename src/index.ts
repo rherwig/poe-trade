@@ -1,24 +1,36 @@
+import 'reflect-metadata';
 import { resolve } from 'path';
-import { Tail } from 'tail';
+import { Container } from 'typedi';
 
-import MessageFactory from './factories/MessageFactory';
+import { IConfiguration } from './interfaces/IConfiguration';
+import loaders from './loaders';
+import LogTailService from './services/LogTailService';
+import EnvelopeFactory from './factories/EnvelopeFactory';
 
-const POE_GAME_PATH = resolve('M:\\', 'Games', 'PoE');
-const POE_LOGS_PATH = resolve(POE_GAME_PATH, 'logs');
-const POE_CLIENT_LOG_PATH = resolve(POE_LOGS_PATH, 'Client.txt');
+const config: IConfiguration = {
+    logPath: resolve('M:\\', 'Games', 'PoE', 'logs', 'Client.txt'),
+};
 
-const tail = new Tail(POE_CLIENT_LOG_PATH);
+(async () => {
+    await loaders(config);
 
-tail.on('line', (data) => {
-    console.log(MessageFactory.fromLogLine(data));
-});
+    const logTailService = Container.get<LogTailService>(LogTailService);
+    const envelopeFactory = Container.get<EnvelopeFactory>(EnvelopeFactory);
 
-tail.on('error', (data) => {
-    console.error('Log Error', data);
-});
+    const handleError = (err: string) => {
+        console.error(err);
+    };
 
-process.on('SIGINT', () => {
-    console.info('Process exiting gracefully...');
-    tail.unwatch();
-    process.exit();
-});
+    const handleLine = (line: string) => {
+        const envelope = envelopeFactory.create(line);
+        console.log(envelope);
+    };
+
+    logTailService.watch(handleError, handleLine);
+
+    process.on('SIGINT', () => {
+        console.info('Process exiting gracefully...');
+        logTailService.unwatch();
+        process.exit();
+    });
+})();

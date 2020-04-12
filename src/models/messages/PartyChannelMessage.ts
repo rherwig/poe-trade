@@ -6,4 +6,8 @@ export default class PartyChannelMessage extends AbstractMessage {
             prefix: '%',
         });
     }
+
+    protected getName(): string {
+        return 'PartyChannelMessage';
+    }
 }

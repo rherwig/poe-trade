@@ -6,4 +6,8 @@ export default class GlobalChannelMessage extends AbstractMessage {
             prefix: '#',
         });
     }
+
+    protected getName(): string {
+        return 'GlobalChannelMessage';
+    }
 }

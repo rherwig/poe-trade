@@ -6,4 +6,8 @@ export default class GuildChannelMessage extends AbstractMessage {
             prefix: '&',
         });
     }
+
+    protected getName(): string {
+        return 'GuildChannelMessage';
+    }
 }

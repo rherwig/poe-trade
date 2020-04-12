@@ -6,4 +6,8 @@ export default class TradeChannelMessage extends AbstractMessage {
             prefix: '\\$',
         });
     }
+
+    protected getName(): string {
+        return 'TradeChannelMessage';
+    }
 }
