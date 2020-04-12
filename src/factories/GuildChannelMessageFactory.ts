@@ -3,7 +3,7 @@ import { Service } from 'typedi';
 import { IFactory } from '../interfaces/IFactory';
 import GuildChannelMessage from '../models/messages/GuildChannelMessage';
 
-@Service('PartChannelMessageFactory')
+@Service('GuildChannelMessageFactory')
 export default class GuildChannelMessageFactory implements IFactory<GuildChannelMessage> {
 
     public create(payload: string): GuildChannelMessage {
