@@ -15,9 +15,9 @@ import PartyChannelMessageFactory from './PartyChannelMessageFactory';
 import GlobalChannelMessageFactory from './GlobalChannelMessageFactory';
 
 @Service('EnvelopeFactory')
-export default class EnvelopeFactory implements IFactory<Envelope> {
+export default class EnvelopeFactory implements IFactory<string, Envelope> {
 
-    private readonly messageFactories: IFactory<AbstractMessage>[];
+    private readonly messageFactories: IFactory<string, AbstractMessage>[];
 
     constructor(
         @Inject('WhisperChannelMessageFactory') whisperMessageFactory: WhisperChannelMessageFactory,
@@ -34,9 +34,9 @@ export default class EnvelopeFactory implements IFactory<Envelope> {
             controlMessageFactory,
             partyChannelMessageFactory,
             guildChannelMessageFactory,
-            localMessageFactory,
             globalChannelMessageFactory,
             tradeChannelMessageFactory,
+            localMessageFactory,
         ];
     }
 
@@ -80,7 +80,7 @@ export default class EnvelopeFactory implements IFactory<Envelope> {
         );
     }
 
-    public getSupportingFactory(payload: string): IFactory<AbstractMessage> | undefined {
+    public getSupportingFactory(payload: string): IFactory<string, AbstractMessage> | undefined {
         return this.messageFactories.find((factory) => {
             return factory.supports(payload);
         });

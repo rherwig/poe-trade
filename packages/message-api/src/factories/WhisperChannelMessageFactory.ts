@@ -6,7 +6,7 @@ import IncomingWhisperMessage from '../models/messages/IncomingWhisperMessage';
 import OutgoingWhisperMessage from '../models/messages/OutgoingWhisperMessage';
 
 @Service('WhisperChannelMessageFactory')
-export default class WhisperChannelMessageFactory implements IFactory<WhisperChannelMessage> {
+export default class WhisperChannelMessageFactory implements IFactory<string, WhisperChannelMessage> {
 
     public create(payload: string): WhisperChannelMessage {
         if (payload.startsWith('@From')) {

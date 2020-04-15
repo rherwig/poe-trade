@@ -1,19 +1,21 @@
 {
-  "name": "@hrwg/poe-trade",
-  "private": true,
+  "name": "@pathofexile/message-api",
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "watch": "nodemon"
+    "bootstrap": "lerna bootstrap",
+    "start": "ts-node index.ts",
+    "watch": "nodemon",
+    "postinstall": "lerna bootstrap"
   },
   "author": "Rico Herwig <rherwig4711@gmail.com>",
+  "contributors": [
+    {
+      "name": "Patrick Hluštik",
+      "email": "patrick.hlustik@googlemail.com"
+    }
+  ],
   "license": "MIT",
-  "dependencies": {
-    "reflect-metadata": "^0.1.13",
-    "tail": "^2.0.3",
-    "typedi": "^0.8.0"
-  },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/node": "^7.8.7",
@@ -24,8 +26,12 @@
     "@typescript-eslint/eslint-plugin-tslint": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "eslint": "^6.8.0",
+    "lerna": "^3.20.2",
     "nodemon": "^2.0.2",
     "ts-node": "^8.8.1",
     "typescript": "^3.8.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

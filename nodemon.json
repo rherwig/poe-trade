@@ -1,10 +1,12 @@
 {
   "watch": [
-    "src/"
+    "index.ts",
+    "packages/message-api",
+    "packages/trade-api"
   ],
   "ext": "ts",
   "ignore": [
-    "src/**/*.test.ts"
+    "**/*.test.ts"
   ],
-  "exec": "ts-node src/index.ts"
+  "exec": "ts-node index.ts"
 }

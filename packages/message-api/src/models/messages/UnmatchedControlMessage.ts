@@ -1,6 +1,6 @@
-import AbstractMessage from './AbstractMessage';
+import ControlMessage from './ControlMessage';
 
-export default class ControlMessage extends AbstractMessage {
+export default class UnmatchedControlMessage extends ControlMessage {
     constructor(payload: string) {
         const prefix = ':';
         const payloadRegex = new RegExp(`(?:${prefix}\\s?)(.*)`);
@@ -13,6 +13,6 @@ export default class ControlMessage extends AbstractMessage {
     }
 
     protected getName(): string {
-        return 'ControlMessage';
+        return 'UnmatchedControlMessage';
     }
 }

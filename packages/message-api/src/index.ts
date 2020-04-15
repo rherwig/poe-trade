@@ -3,34 +3,33 @@ import { resolve } from 'path';
 import { Container } from 'typedi';
 
 import { IConfiguration } from './interfaces/IConfiguration';
-import loaders from './loaders';
 import LogTailService from './services/LogTailService';
 import EnvelopeFactory from './factories/EnvelopeFactory';
+import Envelope from './models/Envelope';
+import loaders from './loaders';
 
-const config: IConfiguration = {
-    logPath: resolve('M:\\', 'Games', 'PoE', 'logs', 'Client.txt'),
-};
-
-(async () => {
+export default async (
+    config: IConfiguration,
+    callback: (err: string | null, message: Envelope | null) => void,
+) => {
     await loaders(config);
 
     const logTailService = Container.get<LogTailService>(LogTailService);
     const envelopeFactory = Container.get<EnvelopeFactory>(EnvelopeFactory);
 
     const handleError = (err: string) => {
-        console.error(err);
+        return callback(err, null);
     };
 
     const handleLine = (line: string) => {
         const envelope = envelopeFactory.create(line);
-        console.log(envelope);
+        return callback(null, envelope)
     };
 
     logTailService.watch(handleError, handleLine);
 
     process.on('SIGINT', () => {
-        console.info('Process exiting gracefully...');
         logTailService.unwatch();
         process.exit();
     });
-})();
+};

@@ -1,0 +1,13 @@
+{
+  "name": "@pathofexile/trade-api",
+  "version": "0.1.0",
+  "main": "src/index.ts",
+  "author": "Rico Herwig <rherwig4711@gmail.com>",
+  "contributors": [
+    {
+      "name": "Patrick Hluštik",
+      "email": "patrick.hlustik@googlemail.com"
+    }
+  ],
+  "license": "MIT"
+}
