@@ -9,5 +9,9 @@
       "email": "patrick.hlustik@googlemail.com"
     }
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "b171e24dff48564f62005eae6a73c400c9715488"
 }
