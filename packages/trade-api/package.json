@@ -1,6 +1,6 @@
 {
   "name": "@pathofexile/trade-api",
-  "version": "0.2.0",
+  "version": null,
   "main": "src/index.ts",
   "author": "Rico Herwig <rherwig4711@gmail.com>",
   "contributors": [
