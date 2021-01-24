@@ -88,3 +88,5 @@ dist
 .fusebox/
 .dynamodb/
 .tern-port
+
+index.ts

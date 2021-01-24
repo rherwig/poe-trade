@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import { resolve } from 'path';
 import { Container } from 'typedi';
 
 import { IConfiguration } from './interfaces/IConfiguration';
@@ -32,4 +31,15 @@ export default async (
         logTailService.unwatch();
         process.exit();
     });
+
+    const simulate = (
+        line: string,
+        prefix: string = '2000/01/01 00:00:00 111111111 aaa [INFO Client 1000]',
+    ) => {
+        return handleLine(`${prefix} ${line}`);
+    }
+
+    return {
+        simulate,
+    };
 };

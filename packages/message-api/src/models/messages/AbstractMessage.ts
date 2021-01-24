@@ -10,10 +10,10 @@ export default abstract class AbstractMessage {
 
         let _prefix = prefix || '';
         let _payloadRegex = typeof payloadRegex === 'undefined'
-            ? new RegExp(`${_prefix || ''}.*:\\s(.*)`)
+            ? new RegExp(`${_prefix || ''}.*?:\\s(.*)`)
             : payloadRegex;
         let _playerRegex = typeof playerRegex === 'undefined'
-            ? new RegExp(`${_prefix || ''}\\s?(.*):`)
+            ? new RegExp(`${_prefix || ''}\\s?(.*?):`)
             : playerRegex;
 
         this.payload = _payloadRegex
@@ -37,4 +37,12 @@ export default abstract class AbstractMessage {
     }
 
     protected abstract getName(): string;
+
+    public getPlayer(): Player | null {
+        return this.player;
+    }
+
+    public getPayload(): string {
+        return this.payload;
+    }
 }
