@@ -1,6 +1,6 @@
 {
   "name": "@pathofexile/trade-api",
-  "version": null,
+  "version": "0.2.0",
   "main": "src/index.ts",
   "author": "Rico Herwig <rherwig4711@gmail.com>",
   "contributors": [
@@ -13,7 +13,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "b171e24dff48564f62005eae6a73c400c9715488",
+  "gitHead": "13d74243e75ca8b1aaca83ebdc8c2dacf5a0b50a",
   "dependencies": {
     "@pathofexile/message-api": "^0.1.2",
     "reflect-metadata": "^0.1.13",

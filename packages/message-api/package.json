@@ -1,6 +1,6 @@
 {
   "name": "@pathofexile/message-api",
-  "version": null,
+  "version": "0.1.2",
   "main": "src/index.ts",
   "scripts": {
     "build": "webpack"
@@ -29,5 +29,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "b171e24dff48564f62005eae6a73c400c9715488"
+  "gitHead": "13d74243e75ca8b1aaca83ebdc8c2dacf5a0b50a"
 }
