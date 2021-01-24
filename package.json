@@ -1,12 +1,9 @@
 {
-  "name": "@pathofexile/message-api",
-  "version": "1.0.0",
-  "main": "src/index.ts",
+  "name": "@pathofexile/log-api",
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "start": "ts-node index.ts",
     "watch": "nodemon",
-    "build": "rollup -c",
     "postinstall": "lerna bootstrap"
   },
   "author": "Rico Herwig <rherwig4711@gmail.com>",
