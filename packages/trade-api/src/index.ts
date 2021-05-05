@@ -1,15 +1,18 @@
 import 'reflect-metadata';
 
-import watch from '@pathofexile/message-api';
-import { IConfiguration } from '@pathofexile/message-api/src/interfaces/IConfiguration';
 import { Container } from 'typedi';
+import watch from '@pathofexile/message-api';
+import { IConfiguration } from '@pathofexile/message-api/lib/interfaces/IConfiguration';
+import WhisperChannelMessage from '@pathofexile/message-api/lib/models/messages/WhisperChannelMessage';
 
 import TradeMessageFactory from './factories/TradeMessageFactory';
 import registerLoaders from './loaders';
-import OutgoingWhisperMessage from '../../message-api/src/models/messages/OutgoingWhisperMessage';
-import WhisperChannelMessage from '@pathofexile/message-api/src/models/messages/WhisperChannelMessage';
+import AbstractTradeMessage from './models/AbstractTradeMessage';
 
-export default async (config: IConfiguration) => {
+export default async (
+    config: IConfiguration,
+    callback: (err: string | null, message: AbstractTradeMessage | null) => void,
+) => {
     await registerLoaders();
 
     const tradeMessageFactory = Container.get<TradeMessageFactory>(TradeMessageFactory);
@@ -22,7 +25,7 @@ export default async (config: IConfiguration) => {
         const message = envelope?.getMessage();
         if (message && message instanceof WhisperChannelMessage) {
             const tradeMessage = tradeMessageFactory.create(message);
-            console.log(tradeMessage);
+            callback(null, tradeMessage);
         }
     });
 };

@@ -1,16 +1,25 @@
 {
-  "extends": "../../tsconfig.json",
-  "exclude": [
-    "node_modules"
-  ],
+  "compilerOptions": {
+    "importHelpers": true,
+    "target": "es2018",
+    "module": "esnext",
+    "lib": [
+      "es2018"
+    ],
+    "allowJs": true,
+    "outDir": "lib",
+    "declaration": true,
+    "rootDir": "./src",
+    "strict": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
   "include": [
     "src/**/*"
-  ],
-  "compilerOptions": {
-    "typeRoots": [
-      "node_modules/@types",
-      "src/types"
-    ],
-    "outDir": "lib"
-  }
+  ]
 }

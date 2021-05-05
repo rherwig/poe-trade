@@ -1,8 +1,8 @@
 import { Service } from 'typedi';
-import WhisperChannelMessage from '@pathofexile/message-api/src/models/messages/WhisperChannelMessage';
 
 import IncomingTradeMessage from '../models/IncomingTradeMessage';
 import AbstractTradeMessage from '../models/AbstractTradeMessage';
+import WhisperChannelMessage from '@pathofexile/message-api/lib/models/messages/WhisperChannelMessage';
 
 @Service()
 export default class TradeMessageFactory {

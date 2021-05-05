@@ -1,14 +1,14 @@
 {
   "name": "@pathofexile/message-api",
-  "version": "0.1.4",
-  "main": "lib/message-api.js",
+  "version": "0.2.0",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib",
     "src"
   ],
   "scripts": {
-    "build": "webpack",
+    "build": "tsc",
     "prepublishOnly": "npm run build"
   },
   "author": "Rico Herwig <rherwig4711@gmail.com>",
