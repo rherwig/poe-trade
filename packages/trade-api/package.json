@@ -23,14 +23,9 @@
     "access": "public"
   },
   "gitHead": "13d74243e75ca8b1aaca83ebdc8c2dacf5a0b50a",
-  "peerDependencies": {
-    "@pathofexile/message-api": "^0.3.0"
-  },
   "dependencies": {
+    "@pathofexile/message-api": "^0.3.0",
     "reflect-metadata": "^0.1.13",
     "typedi": "^0.10.0"
-  },
-  "devDependencies": {
-    "@pathofexile/message-api": "^0.3.0"
   }
 }
